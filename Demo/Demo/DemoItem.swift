@@ -1,6 +1,6 @@
 import Foundation
 
-struct DemoItem : MenuItem {
+struct DemoItem : DropDownMenuItem {
     func title() -> String {
         return value
     }

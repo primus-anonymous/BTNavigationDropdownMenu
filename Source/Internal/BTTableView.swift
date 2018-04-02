@@ -30,7 +30,7 @@ class BTTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     var selectRowAtIndexPathHandler: ((_ indexPath: Int) -> ())?
     
     // Private properties
-    var items: [MenuItem] = []
+    var items: [DropDownMenuItem] = []
     var selectedIndexPath: Int?
     
     required init?(coder aDecoder: NSCoder) {

@@ -214,7 +214,7 @@ open class BTNavigationDropdownMenu: UIView {
     fileprivate var backgroundView: UIView!
     fileprivate var tableView: BTTableView!
     
-    var items: [MenuItem]! {
+    var items: [DropDownMenuItem]! {
         didSet {
             self.tableView.items = items
             self.tableView.reloadData()
