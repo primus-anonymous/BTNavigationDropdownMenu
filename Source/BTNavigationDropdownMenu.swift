@@ -214,10 +214,12 @@ open class BTNavigationDropdownMenu: UIView {
     fileprivate var backgroundView: UIView!
     fileprivate var tableView: BTTableView!
     
-    var items: [DropDownMenuItem]! {
+    open var items: [DropDownMenuItem]! {
         didSet {
             self.tableView.items = items
             self.tableView.reloadData()
+            
+            self.menuArrow.isHidden = items.isEmpty
         }
     }
     fileprivate var menuWrapper: UIView!
@@ -329,6 +331,8 @@ open class BTNavigationDropdownMenu: UIView {
         
         // By default, hide menu view
         self.menuWrapper.isHidden = true
+        
+        self.menuArrow.isHidden = true
     }
     
     override open func layoutSubviews() {
@@ -380,6 +384,11 @@ open class BTNavigationDropdownMenu: UIView {
     }
     
     func showMenu() {
+        
+        guard self.items != nil && !self.items.isEmpty else {
+            return
+        }
+        
         self.menuWrapper.frame.origin.y = self.navigationController!.navigationBar.frame.maxY
         
         self.isShown = true
