@@ -1,6 +1,6 @@
 import Foundation
 
-protocol MenuItem {
+public protocol MenuItem {
     func title() -> String
     
     func isSelectable() -> Bool

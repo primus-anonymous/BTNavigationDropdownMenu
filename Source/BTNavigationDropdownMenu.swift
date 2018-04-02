@@ -203,6 +203,8 @@ open class BTNavigationDropdownMenu: UIView {
     open var didSelectItemAtIndexHandler: ((_ indexPath: Int) -> ())?
     open var isShown: Bool!
     
+    open var titleMaxLength = 25
+    
     fileprivate weak var navigationController: UINavigationController?
     fileprivate var configuration = BTConfiguration()
     fileprivate var topSeparator: UIView!
@@ -466,10 +468,9 @@ open class BTNavigationDropdownMenu: UIView {
         
         var stringToSet = title
         
-        let maxLength = 25 //char length
-        if title.count > maxLength {
+        if title.count > titleMaxLength {
             
-            let index = title.index(title.startIndex, offsetBy: maxLength)
+            let index = title.index(title.startIndex, offsetBy: titleMaxLength)
             
             stringToSet = String(title[..<index]).appending("...")
         }
