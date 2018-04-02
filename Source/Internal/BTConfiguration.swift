@@ -34,7 +34,6 @@ final class BTConfiguration {
     var navigationBarTitleFont: UIFont!
     var cellTextLabelAlignment: NSTextAlignment!
     var cellSelectionColor: UIColor?
-    var checkMarkImage: UIImage!
     var shouldKeepSelectedCellColor: Bool!
     var arrowTintColor: UIColor?
     var arrowImage: UIImage!
@@ -42,7 +41,6 @@ final class BTConfiguration {
     var animationDuration: TimeInterval!
     var maskBackgroundColor: UIColor!
     var maskBackgroundOpacity: CGFloat!
-    var shouldChangeTitleText: Bool!
     
     init() {
         self.defaultValue()
@@ -53,7 +51,6 @@ final class BTConfiguration {
         let bundle = Bundle(for: BTConfiguration.self)
         let url = bundle.url(forResource: "BTNavigationDropdownMenu", withExtension: "bundle")
         let imageBundle = Bundle(url: url!)
-        let checkMarkImagePath = imageBundle?.path(forResource: "checkmark_icon", ofType: "png")
         let arrowImagePath = imageBundle?.path(forResource: "arrow_down_icon", ofType: "png")
         
         // Default values
@@ -68,13 +65,11 @@ final class BTConfiguration {
         self.navigationBarTitleFont = UIFont(name: "HelveticaNeue-Bold", size: 17)
         self.cellTextLabelAlignment = NSTextAlignment.left
         self.cellSelectionColor = UIColor.lightGray
-        self.checkMarkImage = UIImage(contentsOfFile: checkMarkImagePath!)
         self.shouldKeepSelectedCellColor = false
         self.animationDuration = 0.5
         self.arrowImage = UIImage(contentsOfFile: arrowImagePath!)
         self.arrowPadding = 15
         self.maskBackgroundColor = UIColor.black
         self.maskBackgroundOpacity = 0.3
-        self.shouldChangeTitleText = true
     }
 }
